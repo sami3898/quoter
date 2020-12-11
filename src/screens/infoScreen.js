@@ -1,7 +1,7 @@
 // All imports here
 import React,{ Component } from 'react';
 import { View, Text, StyleSheet,FlatList, Image, TouchableOpacity, Linking } from 'react-native';
-import { CELADON, deviceHeight, INSTA_ICON, GMAIL_ICON, TWITTER_ICON, deviceWidth } from '../common/constant';
+import { CELADON, deviceHeight, INSTA_ICON, GMAIL_ICON, TWITTER_ICON, deviceWidth, BACK_ICON } from '../common/constant';
 
 
 // Main Class Component
@@ -56,6 +56,15 @@ export default class InfoScreen extends Component {
                 elevation: 0
                 
             },
+            headerLeft: () => {
+                return (
+                    <TouchableOpacity onPress={() => {
+                        this.props.navigation.goBack();
+                    }}>
+                        <Image source={BACK_ICON} style={styles.backIcon} />
+                    </TouchableOpacity>
+                )
+            }
         })
     }
 
@@ -189,5 +198,12 @@ const styles = StyleSheet.create({
         height: 0.13 * deviceWidth,
         width: 0.13 * deviceWidth,
         tintColor: '#fff'
+    },
+    backIcon: {
+        height: 0.067 * deviceWidth,
+        width: 0.067 * deviceWidth,
+        resizeMode: 'contain',
+        tintColor: 'white',
+        marginLeft: 0.04 * deviceWidth
     }
 })
