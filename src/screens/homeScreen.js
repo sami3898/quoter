@@ -55,7 +55,7 @@ export default class HomeScreen extends Component {
     // Custom Header Function
     customHeader() {
         this.props.navigation.setOptions({
-            title: 'quoter',
+            title: 'quoter App',
             headerTitleAlign: 'center',
             headerTitleAllowFontScaling: false,
             headerTitleStyle: {
