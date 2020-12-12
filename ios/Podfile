@@ -8,6 +8,10 @@ target 'quoter' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'RNSnackbar', :path => '../node_modules/react-native-snackbar'
+
+  pod 'RNCClipboard', :path => '../node_modules/@react-native-community/clipboard'
+
   target 'quoterTests' do
     inherit! :complete
     # Pods for testing
