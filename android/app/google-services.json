@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "28203414018",
+    "firebase_url": "https://quoter-14119.firebaseio.com",
+    "project_id": "quoter-14119",
+    "storage_bucket": "quoter-14119.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28203414018:android:d098d1540d6c829bb32d1b",
+        "android_client_info": {
+          "package_name": "com.samcode.quoter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28203414018-92lftkiiipcs787e22ufe0f1cmb0bhgf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8SWBqxmIQxbhdap7Ox3IIxYT1pDMCb8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28203414018-92lftkiiipcs787e22ufe0f1cmb0bhgf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-5475538885064140~2967545780"
+    }
+  ],
+  "configuration_version": "1"
+}

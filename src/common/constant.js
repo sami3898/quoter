@@ -1,5 +1,5 @@
+import { TestIds } from '@react-native-firebase/admob';
 import { Dimensions } from 'react-native';
-
 
 // Height and Width Dimension
 const deviceHeight = Dimensions.get('window').height;
@@ -14,6 +14,11 @@ const GMAIL_ICON    = require('../../res/gmail/gmail.png');
 const FAVBOX_ICON   = require('../../res/favBox/favBox.png');
 const BACK_ICON     = require('../../res/backIcon/back.png');
 
+// Add Unit Ids
+const debug = true;
+
+const BANNER_ID = debug == true ? TestIds.BANNER : 'ca-app-pub-5475538885064140/2669190550'
+
 // Export Everything
 
 export {
@@ -25,5 +30,6 @@ export {
     FAVBOX_ICON,
     BACK_ICON,
     deviceHeight,
-    deviceWidth
+    deviceWidth,
+    BANNER_ID
 }

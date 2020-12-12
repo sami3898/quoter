@@ -13,10 +13,12 @@ import {
   INFO_ICON,
   FAVBOX_ICON,
   COPY_ICON,
+  BANNER_ID,
 } from '../common/constant';
 import {getRequest} from '../helper/apiHelper';
 import Snackbar from 'react-native-snackbar';
 import Clipboard from '@react-native-community/clipboard';
+import { BannerAd, BannerAdSize, TestIds, } from '@react-native-firebase/admob';
 
 export default class HomeScreen extends Component {
   constructor() {
@@ -183,9 +185,21 @@ export default class HomeScreen extends Component {
             position: 'absolute',
             bottom: 0,
             width: '100%',
-            height: 80,
-            backgroundColor: 'red',
-          }}></View>
+            height: 50,
+			alignItems: 'center'
+          }}>
+			  <BannerAd
+				  unitId={BANNER_ID}
+				  size={BannerAdSize.BANNER}
+				  onAdLoaded={() => {
+					  console.log('Ad Load')
+				  }}
+				  onAdFailedToLoad={(error) => {
+					alert('Advert failed to load: ' + error);
+				 }}
+			  
+			  />
+		  </View>
       </View>
     );
   }
