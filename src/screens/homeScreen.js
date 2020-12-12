@@ -14,11 +14,19 @@ import {
   FAVBOX_ICON,
   COPY_ICON,
   BANNER_ID,
+  INTERSTITIAL_ID,
 } from '../common/constant';
 import {getRequest} from '../helper/apiHelper';
 import Snackbar from 'react-native-snackbar';
 import Clipboard from '@react-native-community/clipboard';
-import { BannerAd, BannerAdSize, TestIds, } from '@react-native-firebase/admob';
+import {
+  BannerAd,
+  BannerAdSize,
+  InterstitialAd,
+  TestIds,
+  AdEventType,
+  firebase,
+} from '@react-native-firebase/admob';
 
 export default class HomeScreen extends Component {
   constructor() {
@@ -38,6 +46,19 @@ export default class HomeScreen extends Component {
   componentDidMount() {
     this.customHeader();
     this.getAdvice();
+    // var firebaseConfig = {
+    //   apiKey: "AIzaSyB8SWBqxmIQxbhdap7Ox3IIxYT1pDMCb8I",
+    //   authDomain: "quoter-14119.firebaseapp.com",
+    //   databaseURL: "https://quoter-14119.firebaseio.com",
+    //   projectId: "quoter-14119",
+    //   storageBucket: "quoter-14119.appspot.com",
+    //   messagingSenderId: "quoter-14119",
+    //   appId: "1:28203414018:android:d098d1540d6c829bb32d1b",
+    //   //measurementId: "G-measurement-id",
+    // };
+    // if (firebase.app.length < 1) {
+    //   firebase.initializeApp(firebaseConfig)
+    // }
   }
 
   // Function to get Api response
@@ -131,6 +152,22 @@ export default class HomeScreen extends Component {
     });
   }
 
+  // Show interstitialAd
+  showInterstitialAd = () => {
+    // Create a new instance
+    const interstitialAd = InterstitialAd.createForAdRequest(INTERSTITIAL_ID);
+
+    // Add event handlers
+    interstitialAd.onAdEvent((type, error) => {
+      if (type === AdEventType.LOADED) {
+        interstitialAd.show();
+      }
+    });
+
+    // Load a new advert
+    interstitialAd.load();
+  };
+
   render() {
     let mainView = <View />;
     let loadingView = (
@@ -152,7 +189,7 @@ export default class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <Text allowFontScaling={false} style={styles.tagLine}>
-          {'A simple QUOTE Giver'}
+          {'A simple QUOTE Generator'}
         </Text>
 
         <View style={styles.cardView}>
@@ -185,21 +222,20 @@ export default class HomeScreen extends Component {
             position: 'absolute',
             bottom: 0,
             width: '100%',
-            height: 50,
-			alignItems: 'center'
+            height: 0.07 * deviceHeight,
+            alignItems: 'center',
           }}>
-			  <BannerAd
-				  unitId={BANNER_ID}
-				  size={BannerAdSize.BANNER}
-				  onAdLoaded={() => {
-					  console.log('Ad Load')
-				  }}
-				  onAdFailedToLoad={(error) => {
-					alert('Advert failed to load: ' + error);
-				 }}
-			  
-			  />
-		  </View>
+          <BannerAd
+            unitId={BANNER_ID}
+            size={BannerAdSize.BANNER}
+            onAdLoaded={() => {
+              console.log('Ad Load');
+            }}
+            onAdFailedToLoad={(error) => {
+              alert('Advert failed to load: ' + error);
+            }}
+          />
+        </View>
       </View>
     );
   }

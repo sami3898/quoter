@@ -18,7 +18,7 @@ const BACK_ICON     = require('../../res/backIcon/back.png');
 const debug = true;
 
 const BANNER_ID = debug == true ? TestIds.BANNER : 'ca-app-pub-5475538885064140/2669190550'
-
+const INTERSTITIAL_ID = debug == true ? TestIds.INTERSTITIAL : 'ca-app-pub-5475538885064140/1036351160'
 // Export Everything
 
 export {
@@ -31,5 +31,6 @@ export {
     BACK_ICON,
     deviceHeight,
     deviceWidth,
-    BANNER_ID
+    BANNER_ID,
+    INTERSTITIAL_ID
 }

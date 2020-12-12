@@ -1,5 +1,5 @@
 // All imports here
-import { BannerAd, BannerAdSize } from '@react-native-firebase/admob';
+import {BannerAd, BannerAdSize} from '@react-native-firebase/admob';
 import React, {Component} from 'react';
 import {
   View,
@@ -155,7 +155,7 @@ export default class InfoScreen extends Component {
             position: 'absolute',
             bottom: 0,
             width: '100%',
-            height: 50,
+            height: 0.070 * deviceHeight,
             alignItems: 'center',
           }}>
           <BannerAd
